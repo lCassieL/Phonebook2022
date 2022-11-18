@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-    <div class="grid">
+    <div id="wrapper" class="">
     <?php
         include_once 'app/views/pages/'.$this->page.'.php'; 
     ?>

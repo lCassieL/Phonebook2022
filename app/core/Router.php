@@ -26,14 +26,19 @@ class Router {
             self::ErrorPage404();
             return;
         }
-        if (!isset($_SESSION['login'])) {
+        if(!isset($_SESSION['login'])) {
             $_SESSION['login'] = false;
         }
-        if($controller_class != 'UserController' && !$_SESSION['login'] && $action !='action_index'){
+        if(!isset($_SESSION['message'])) {
+            $_SESSION['message'] = false;
+        } else {
+            $_SESSION['message'] = false;
+        }
+        /*if($controller_class != 'UserController' && !$_SESSION['login'] && $action !='action_index'){
             $_SESSION['message'] = "you are not authorized";
             GenerateHeader::generateHeader(false, 401, $_SESSION['message']);
             return;
-        }
+        }*/
         $controller = new $controller_class;
         if(method_exists($controller, $action)) {
             empty($routes[3]) ? $controller->$action() : $controller->$action($routes[3]);
@@ -43,7 +48,7 @@ class Router {
     }
 
     static function ErrorPage404() {
-        $_SESSION['message'] = "Page doesn't exist";
+        //$_SESSION['message'] = "Page doesn't exist";
         GenerateHeader::generateHeader(false, 404, $_SESSION['message']);
     }
 }
