@@ -44,6 +44,10 @@ body, html {
     border-radius: 14px;
 }
 
+#menu button:hover, #menu .menu_button:hover {
+    background-color: rgb(228, 225, 225);
+}
+
 #phonebook_list {
     text-align: left;
 }
@@ -120,5 +124,10 @@ body, html {
 
 #my_contacts div, #my_phones div, #my_emails div {
     margin: 10px;
+}
+
+#mycontact_form label {
+    display: inline-block;
+    width: 130px;
 }
 

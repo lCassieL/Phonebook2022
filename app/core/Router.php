@@ -31,8 +31,6 @@ class Router {
         }
         if(!isset($_SESSION['message'])) {
             $_SESSION['message'] = false;
-        } else {
-            $_SESSION['message'] = false;
         }
         /*if($controller_class != 'UserController' && !$_SESSION['login'] && $action !='action_index'){
             $_SESSION['message'] = "you are not authorized";

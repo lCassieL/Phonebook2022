@@ -13,5 +13,6 @@
     <?php } ?>
 </div>
 <div id="content">
-    <?php if($_SESSION['message']) echo $_SESSION['message'] ?>
+    <?php if($_SESSION['message']) echo $_SESSION['message']; ?>
+    <?php $_SESSION['message'] = false; ?>
 </div>

@@ -28,9 +28,10 @@ class MainModel extends Model {
         }
     }
 
-    public function getUser($id) {
+    public function getUser($id, $only_publish = false) {
         if($this->db->connect_errno === 0) {
-            $query = "SELECT users.*, countries.name AS country FROM users, countries WHERE users.country_id=countries.id AND publish=1 AND users.id=".(int)$id;
+            $id = (int)$id;
+            $query = "SELECT users.*, countries.name AS country FROM users, countries WHERE users.country_id=countries.id AND users.id=$id" . ($only_publish ? " AND publish=1" : "");
             $res = $this->db->query($query);
             if($res) {
                 return $res->fetch_all(MYSQLI_ASSOC);
@@ -136,8 +137,6 @@ class MainModel extends Model {
                 $query = "INSERT INTO emails(email, publish, user_id) VALUES('$email','$publish','$user_id');";
                 $this->db->query($query);
             }
-            //var_dump($query);
-            //$res = $this->db->multi_query($query);
             return mysqli_affected_rows($this->db);
         }
     }

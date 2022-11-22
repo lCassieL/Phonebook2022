@@ -5,7 +5,6 @@ function showLoginPage() {
     xhr.onreadystatechange = function() {
         if(xhr.readyState === 4 && xhr.status === 200) {
             let json = xhr.responseText
-            //console.log(json)
             document.getElementById('content').innerHTML = json
         }
     };
@@ -19,7 +18,6 @@ function showPhonebook() {
     xhr.onreadystatechange = function() {
         if(xhr.readyState === 4 && xhr.status === 200) {
             let json = xhr.responseText
-            //console.log(json)
             document.getElementById('content').innerHTML = json
         }
     }
@@ -54,7 +52,6 @@ function showMyContact() {
     xhr.onreadystatechange = function() {
         if(xhr.readyState === 4 && xhr.status === 200) {
             let json = xhr.responseText
-            //console.log(json)
             document.getElementById('content').innerHTML = json
         }
     }
@@ -66,7 +63,8 @@ function addPhone(add_button) {
     let phone = document.createElement("input")
     phone.type = "tel"
     phone.name = "new_phones[]"
-    phone.pattern="[\+][0-9]{12}"
+    phone.pattern = "[\+][0-9]{12}"
+    phone.placeholder = "+380000000000"
     let phone_hidden = document.createElement("input")
     phone_hidden.type = "hidden"
     phone_hidden.name = "new_phones_checkbox[]"

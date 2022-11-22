@@ -27,7 +27,7 @@
             <label>Country:</label>
             <select name="country">
                 <?php foreach($this->countries as $country){ ?>
-                    <option value="<?= $country['id'] ?>"><?= $country['name'] ?></option>
+                    <option value="<?= $country['id'] ?>" <?= (int)$this->user[0]['country_id'] == (int)$country['id'] ? 'selected' : '' ?>><?= $country['name'] ?></option>
                 <?php } ?>
             </select>
         </div>
@@ -36,7 +36,7 @@
         <a href="javascript:void(0)" role="button" class="like_header">Phones</a>
         <?php foreach($this->phones as $phone) { ?>
             <div>
-                <input type="tel" name="phones[]" value="<?= $phone['number'] ?>" pattern="[\+][0-9]{12}">
+                <input type="tel" name="phones[]" value="<?= $phone['number'] ?>" pattern="[\+][0-9]{12}" placeholder="+380000000000">
                 <input type="hidden" name="phones_id[]" value="<?= $phone['id'] ?>">
                 <input type="hidden" name="phones_checkbox[]" value="0">
                 <input type="checkbox" name="phones_checkbox[]" value="1" <?= (int)$phone['publish'] ? 'checked' : '' ?>>
