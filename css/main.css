@@ -1,0 +1,124 @@
+body, html {
+    min-height: 100%;
+    height:100%;
+}
+#wrapper {
+    text-align: center;
+    min-height: 100%;
+    height:100%;
+}
+#wrapper #menu {
+    text-align: left;
+}
+
+#login_form input {
+    margin: 10px;
+}
+
+#login_form label {
+    display: inline-block;
+    width: 100px;
+}
+
+.header_color {
+    color: darkred;
+}
+
+#content {
+    border: 1px solid black;
+    margin-top: 10px;
+    padding: 10px;
+    min-height:100%;
+    height:100%
+}
+
+#menu form {
+    display:inline-block;
+}
+
+#menu button, #menu .menu_button {
+    background-color: #d1dbd8;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 14px;
+}
+
+#phonebook_list {
+    text-align: left;
+}
+#phonebook_list .phonebook_item {
+    margin: 10px;
+}
+
+#phonebook_list .contact {
+    display: inline-block;
+    width: 200px;
+}
+
+#phonebook_list .details_wrapper {
+    display: grid;
+    /* grid-template-areas:
+        "location location location time"
+        "map map map crew"; */
+    /* grid-template-rows: 1fr 6fr; */
+    grid-template-columns: 33% 33% 33%;
+    grid-gap: 10px;
+    /* margin: 0; */
+}
+
+.details_column {
+    text-align: center;
+}
+
+.like_header {
+    color: black;
+    display: block;
+}
+
+.like_block {
+    display: block;
+}
+
+#mycontact_form {
+    display: grid;
+    grid-template-areas:
+        ". title publish"
+        "contacts phones emails"
+        ". . submit";
+    grid-template-rows: 1fr 3fr 1fr;
+    grid-template-columns: 33% 33% 33%;
+    grid-gap: 10px;
+    /* margin: 0; */
+    /* height:100%; */
+    /* min-height:100%; */
+}
+
+#my_title {
+    grid-area: title;
+}
+  
+#my_publish {
+    grid-area: publish;
+}
+  
+#my_contacts {
+    grid-area: contacts;
+}
+  
+#my_phones {
+    grid-area: phones;
+}
+
+#my_emails {
+    grid-area: emails;
+}
+
+#my_submit {
+    grid-area: submit;
+}
+
+#my_contacts div, #my_phones div, #my_emails div {
+    margin: 10px;
+}
+
