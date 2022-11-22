@@ -22,7 +22,7 @@ class Validation {
                 if( (strlen($param) < 20) && (strlen($param) > 4) && (preg_match('/^[a-zA-Z0-9]/', $param) == 1) ) {
                     return true;
                 } else {
-                    $_SESSION['message'] = "wrong field ".$type.". must be more 4 symbols, less then 20, contain at least 1 letter and 1 digit.";
+                    $_SESSION['message'] = "wrong field ".$type.". must be more 4 symbols, less then 20, contain at least 1 letter or 1 digit.";
                     return false;
                 }
                 break;
