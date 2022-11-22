@@ -5,7 +5,6 @@ class MainModel extends Model {
         if($this->db->connect_errno === 0) {
             $username = mysqli_real_escape_string($this->db, $username);
             $password = mysqli_real_escape_string($this->db, $password);
-            //$query = "SELECT * FROM users WHERE username=".$username." AND password=".$password;
             $query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
             $res = $this->db->query($query);
             if($res && $res->num_rows) {
@@ -109,10 +108,11 @@ class MainModel extends Model {
                 $number = mysqli_real_escape_string($this->db, $new_phone);
                 $publish = (int)$new_phones_checkbox[$key];
                 $user_id = (int)$user_id;
+                $check = $this->db->query("SELECT * FROM phones WHERE number='$number'");
+                if($check) continue;
                 $query = "INSERT INTO phones(number, publish, user_id) VALUES('$number','$publish','$user_id');";
                 $this->db->query($query);
             }
-            //$res = $this->db->multi_query($query);
             return mysqli_affected_rows($this->db);
         }
     }
@@ -134,6 +134,8 @@ class MainModel extends Model {
                 $email = mysqli_real_escape_string($this->db, $new_email);
                 $publish = (int)$new_emails_checkbox[$key];
                 $user_id = (int)$user_id;
+                $check = $this->db->query("SELECT * FROM emails WHERE email='$email'");
+                if($check) continue;
                 $query = "INSERT INTO emails(email, publish, user_id) VALUES('$email','$publish','$user_id');";
                 $this->db->query($query);
             }

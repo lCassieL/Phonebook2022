@@ -62,13 +62,8 @@ body, html {
 
 #phonebook_list .details_wrapper {
     display: grid;
-    /* grid-template-areas:
-        "location location location time"
-        "map map map crew"; */
-    /* grid-template-rows: 1fr 6fr; */
     grid-template-columns: 33% 33% 33%;
     grid-gap: 10px;
-    /* margin: 0; */
 }
 
 .details_column {
@@ -93,9 +88,6 @@ body, html {
     grid-template-rows: 1fr 3fr 1fr;
     grid-template-columns: 33% 33% 33%;
     grid-gap: 10px;
-    /* margin: 0; */
-    /* height:100%; */
-    /* min-height:100%; */
 }
 
 #my_title {
