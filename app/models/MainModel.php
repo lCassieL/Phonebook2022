@@ -109,7 +109,7 @@ class MainModel extends Model {
                 $publish = (int)$new_phones_checkbox[$key];
                 $user_id = (int)$user_id;
                 $check = $this->db->query("SELECT * FROM phones WHERE number='$number'");
-                if($check) continue;
+                if(mysqli_num_rows($check) != 0) continue;
                 $query = "INSERT INTO phones(number, publish, user_id) VALUES('$number','$publish','$user_id');";
                 $this->db->query($query);
             }
@@ -135,7 +135,7 @@ class MainModel extends Model {
                 $publish = (int)$new_emails_checkbox[$key];
                 $user_id = (int)$user_id;
                 $check = $this->db->query("SELECT * FROM emails WHERE email='$email'");
-                if($check) continue;
+                if(mysqli_num_rows($check) != 0) continue;
                 $query = "INSERT INTO emails(email, publish, user_id) VALUES('$email','$publish','$user_id');";
                 $this->db->query($query);
             }
